@@ -7,7 +7,7 @@ import {
   Entity,
   Bytes,
   Address,
-  BigInt
+  BigInt,
 } from "@graphprotocol/graph-ts";
 
 export class ItemBought extends ethereum.Event {
@@ -113,33 +113,33 @@ export class NftMarketplace extends ethereum.SmartContract {
 
   getListing(
     nftAddress: Address,
-    tokenId: BigInt
+    tokenId: BigInt,
   ): NftMarketplace__getListingResultValue0Struct {
     let result = super.call(
       "getListing",
       "getListing(address,uint256):((uint256,address))",
       [
         ethereum.Value.fromAddress(nftAddress),
-        ethereum.Value.fromUnsignedBigInt(tokenId)
-      ]
+        ethereum.Value.fromUnsignedBigInt(tokenId),
+      ],
     );
 
     return changetype<NftMarketplace__getListingResultValue0Struct>(
-      result[0].toTuple()
+      result[0].toTuple(),
     );
   }
 
   try_getListing(
     nftAddress: Address,
-    tokenId: BigInt
+    tokenId: BigInt,
   ): ethereum.CallResult<NftMarketplace__getListingResultValue0Struct> {
     let result = super.tryCall(
       "getListing",
       "getListing(address,uint256):((uint256,address))",
       [
         ethereum.Value.fromAddress(nftAddress),
-        ethereum.Value.fromUnsignedBigInt(tokenId)
-      ]
+        ethereum.Value.fromUnsignedBigInt(tokenId),
+      ],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
@@ -147,14 +147,14 @@ export class NftMarketplace extends ethereum.SmartContract {
     let value = result.value;
     return ethereum.CallResult.fromValue(
       changetype<NftMarketplace__getListingResultValue0Struct>(
-        value[0].toTuple()
-      )
+        value[0].toTuple(),
+      ),
     );
   }
 
   getProceeds(seller: Address): BigInt {
     let result = super.call("getProceeds", "getProceeds(address):(uint256)", [
-      ethereum.Value.fromAddress(seller)
+      ethereum.Value.fromAddress(seller),
     ]);
 
     return result[0].toBigInt();
@@ -164,7 +164,7 @@ export class NftMarketplace extends ethereum.SmartContract {
     let result = super.tryCall(
       "getProceeds",
       "getProceeds(address):(uint256)",
-      [ethereum.Value.fromAddress(seller)]
+      [ethereum.Value.fromAddress(seller)],
     );
     if (result.reverted) {
       return new ethereum.CallResult();
