@@ -1,6 +1,6 @@
-# Graph NFT Marketplace FCC
+# Graph NFT Marketplace
 
-_This repo has been updated to work with Sepolia over Goerli._
+_This repo has been updated to work with Sepolia._
 
 # Quickstart
 
