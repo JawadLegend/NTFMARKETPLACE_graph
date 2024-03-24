@@ -5,7 +5,7 @@ import {
     ItemCanceled as ItemCanceledEvent,
     ItemListed as ItemListedEvent,
 } from "../generated/NftMarketplace/NftMarketplace"
-import { ItemListed, ActiveItem, ItemBought, ItemCanceled, ItemListed } from "../generated/schema"
+import { ItemListed, ActiveItem, ItemBought, ItemCanceled } from "../generated/schema"
 
 
 export function handleItemBought(event: ItemBoughtEvent): void {
